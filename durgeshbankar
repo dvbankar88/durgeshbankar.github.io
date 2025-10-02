@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durgesh Bankar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .admin-panel {
+            display: none;
+        }
+        .login-panel {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .property-card {
+            transition: all 0.3s ease;
+        }
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">Durgesh Vishnu Bankar</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" onclick="showPage('home')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Home</a>
+                    <a href="#" onclick="showPage('about')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">About</a>
+                    <a href="#" onclick="showPage('work')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">My Work</a>
+                    <a href="#" onclick="showPage('blog')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Blog</a>
+                    <a href="#" onclick="showPage('contact')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Contact</a>
+                    <button onclick="toggleAdmin()" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+                        <i class="fas fa-cog mr-2"></i>Admin
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" onclick="showPage('home')" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="#" onclick="showPage('about')" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">About</a>
+                <a href="#" onclick="showPage('work')" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">My Work</a>
+                <a href="#" onclick="showPage('blog')" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Blog</a>
+                <a href="#" onclick="showPage('contact')" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+                <button onclick="toggleAdmin()" class="block w-full text-left px-3 py-2 text-indigo-600">Admin Panel</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-16">
+        <!-- Home Page -->
+        <div id="homePage" class="page-content">
+            <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">Durgesh Vishnu Bankar</h1>
+                    <p class="text-xl md:text-2xl mb-8 fade-in">Businessman • Entrepreneur • Social Worker</p>
+                    <p class="text-lg mb-8 max-w-3xl mx-auto fade-in" id="heroDescription">
+                        Passionate about creating positive change through business innovation and social impact. Building bridges between entrepreneurship and community development.
+                    </p>
+                    <div class="space-x-4 fade-in">
+                        <button onclick="showPage('about')" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            Learn More
+                        </button>
+                        <button onclick="showPage('contact')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
+                            Get In Touch
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Biography Section -->
+            <section class="py-16 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Durgesh Vishnu Bankar</h2>
+                    <div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border-l-8 border-gradient-to-b from-indigo-500 to-purple-600">
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="text-center">
+                                <div class="relative inline-block">
+                                    <img id="profilePhotoHome" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='100' fill='url(%23grad)'/%3E%3Ctext x='100' y='120' font-family='Arial, sans-serif' font-size='50' fill='white' text-anchor='middle'%3E👤%3C/text%3E%3C/svg%3E" alt="Durgesh Bankar" class="w-48 h-48 rounded-full mx-auto border-6 border-white shadow-2xl object-cover">
+                                    <div class="absolute -bottom-2 -right-2 bg-gradient-to-r from-green-400 to-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+                                        <i class="fas fa-star text-lg"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2">
+                                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-xl mb-6">
+                                    <h3 class="text-2xl font-bold mb-2">Durgesh Vishnu Bankar</h3>
+                                    <p class="text-lg opacity-90">Businessman • Entrepreneur • Social Worker</p>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-6" id="biographyPreview">
+                                    A visionary entrepreneur and dedicated social worker from Maharashtra, India. With a passion for creating sustainable business models that benefit both the economy and society, Durgesh has established himself as a respected figure across multiple sectors including real estate, digital services, social welfare, and manufacturing.
+                                </p>
+                                <button onclick="showPage('profile')" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                                    <i class="fas fa-user-circle mr-2"></i>View Full Biography
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Ventures Section -->
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Business Ventures</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div onclick="showPage('ngo')" class="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-lg border-l-4 border-green-500 cursor-pointer hover:shadow-lg transition-all">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-heart text-green-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-green-700">SN Group Foundation</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Non-profit organization focused on community development and social welfare initiatives.</p>
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-users mr-1"></i> Social Impact • Community Development
+                            </div>
+                        </div>
+                        
+                        <div onclick="showPage('realestate')" class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg border-l-4 border-purple-500 cursor-pointer hover:shadow-lg transition-all">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-building text-purple-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-purple-700">SN Properties Group</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Real estate services including property development, sales, and investment consultation.</p>
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-home mr-1"></i> Real Estate • Property Development
+                            </div>
+                        </div>
+                        
+                        <div onclick="showPage('onlinecenter')" class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-lg border-l-4 border-blue-500 cursor-pointer hover:shadow-lg transition-all">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-laptop text-blue-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-blue-700">SN Online Center</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Digital services center providing ITR filing, GST services, online forms, and trust registration.</p>
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-digital-tachograph mr-1"></i> Digital Services • Government Forms
+                            </div>
+                        </div>
+                        
+                        <div onclick="showPage('waterbottle')" class="bg-gradient-to-br from-cyan-50 to-teal-50 p-8 rounded-lg border-l-4 border-cyan-500 cursor-pointer hover:shadow-lg transition-all">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-cyan-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-tint text-cyan-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-cyan-700">Ayneer Water Bottle Plant</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Upcoming water bottling venture offering premium and regular segment products.</p>
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-industry mr-1"></i> Manufacturing • Coming Soon
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About My Work Section -->
+            <section class="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About My Work</h2>
+                    <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                        <div class="text-center mb-8">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-xl mb-6 inline-block">
+                                <h3 class="text-2xl font-bold mb-2">Durgesh Vishnu Bankar</h3>
+                                <p class="text-lg opacity-90">Professional Work & Services</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prose prose-lg max-w-none mb-8">
+                            <p class="text-gray-700 leading-relaxed text-center" id="aboutMyWorkDescription">
+                                With years of experience across multiple sectors, I provide comprehensive business solutions and services. My work spans real estate development, digital services, social welfare initiatives, and manufacturing ventures. I am committed to delivering quality results and building lasting relationships with clients and communities.
+                            </p>
+                        </div>
+
+                        <!-- Work Contact Options -->
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Direct Call</h4>
+                                <p class="text-blue-600 font-medium" id="workContactPhone">7058257708</p>
+                                <p class="text-gray-600 text-sm">Available 9 AM - 8 PM</p>
+                            </div>
+                            
+                            <div class="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200">
+                                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-envelope text-green-600 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Email</h4>
+                                <p class="text-green-600 font-medium" id="workContactEmail">dvbankar88@gmail.com</p>
+                                <p class="text-gray-600 text-sm">Response within 24 hours</p>
+                            </div>
+                            
+                            <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+                                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-calendar-alt text-purple-600 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Schedule Meeting</h4>
+                                <p class="text-purple-600 font-medium">Book Appointment</p>
+                                <p class="text-gray-600 text-sm">In-person or virtual</p>
+                            </div>
+                            
+                            <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-lg border border-orange-200">
+                                <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-map-marker-alt text-orange-600 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Office Visit</h4>
+                                <p class="text-orange-600 font-medium" id="workOfficeLocation">Maharashtra, India</p>
+                                <p class="text-gray-600 text-sm">By appointment only</p>
+                            </div>
+                        </div>
+
+                        <!-- Services Overview -->
+                        <div class="border-t pt-8">
+                            <h3 class="text-2xl font-bold text-center mb-6 text-gray-800">Professional Services</h3>
+                            <div class="grid md:grid-cols-2 gap-6" id="professionalServices">
+                                <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                                    <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-building text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Real Estate Services</h4>
+                                        <p class="text-gray-600 text-sm">Property development, sales, investment consultation, and real estate advisory services.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                                    <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-heart text-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Social Welfare</h4>
+                                        <p class="text-gray-600 text-sm">Community development programs, NGO management, and social impact initiatives.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                                    <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-laptop text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Digital Services</h4>
+                                        <p class="text-gray-600 text-sm">Online center services, ITR filing, GST services, and government form assistance.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                                    <div class="bg-cyan-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-industry text-cyan-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Business Ventures</h4>
+                                        <p class="text-gray-600 text-sm">Manufacturing projects, business development, and entrepreneurial consulting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="text-center mt-8 pt-8 border-t">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800">Ready to Work Together?</h3>
+                            <p class="text-gray-600 mb-6">Let's discuss how I can help with your project or business needs.</p>
+                            <div class="space-x-4">
+                                <button onclick="showPage('contact')" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                                    <i class="fas fa-envelope mr-2"></i>Get In Touch
+                                </button>
+                                <a href="tel:7058257708" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-block">
+                                    <i class="fas fa-phone mr-2"></i>Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="aboutPage" class="page-content hidden">
+            <section class="py-16 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="mx-auto flex items-center justify-center">
+                                <img id="profilePhoto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='150' cy='150' r='150' fill='url(%23grad)'/%3E%3Ctext x='150' y='180' font-family='Arial, sans-serif' font-size='80' fill='white' text-anchor='middle'%3E👤%3C/text%3E%3C/svg%3E" alt="Durgesh Bankar" class="profile-photo">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Durgesh Bankar</h3>
+                            <p class="text-gray-600 mb-6" id="aboutDescription">
+                                I am a passionate businessman, entrepreneur, and social worker dedicated to creating positive change in our community. With years of experience in various business ventures and a deep commitment to social causes, I strive to bridge the gap between commercial success and social responsibility.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-briefcase text-indigo-600 mr-3"></i>
+                                    <span>Entrepreneur & Business Leader</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-heart text-red-500 mr-3"></i>
+                                    <span>Social Worker & Community Advocate</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-green-600 mr-3"></i>
+                                    <span>Real Estate Professional</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" class="page-content hidden">
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Back Button -->
+                    <div class="mb-8">
+                        <button onclick="showPage('home')" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span class="font-medium">Back to Home</span>
+                        </button>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-3 gap-12">
+                        <!-- Profile Photo and Basic Info -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-8 text-center sticky top-8">
+                                <img id="profilePhotoProfile" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='125' cy='125' r='125' fill='url(%23grad)'/%3E%3Ctext x='125' y='150' font-family='Arial, sans-serif' font-size='60' fill='white' text-anchor='middle'%3E👤%3C/text%3E%3C/svg%3E" alt="Durgesh Bankar" class="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover">
+                                <h2 class="text-2xl font-bold text-gray-800 mb-2">Durgesh Bankar</h2>
+                                <p class="text-gray-600 mb-4">Businessman, Entrepreneur & Social Worker</p>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    <div class="flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt mr-2"></i>
+                                        <span>Maharashtra, India</span>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <i class="fas fa-phone mr-2"></i>
+                                        <span>7058257708</span>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <i class="fas fa-envelope mr-2"></i>
+                                        <span>dvbankar88@gmail.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Biography -->
+                        <div class="lg:col-span-2">
+                            <div class="space-y-8">
+                                <!-- Personal Biography -->
+                                <div>
+                                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-200 pb-2">Biography</h3>
+                                    <div class="prose prose-lg max-w-none">
+                                        <p class="text-gray-700 leading-relaxed mb-6" id="fullBiography">
+                                            Durgesh Bankar is a prominent businessman, entrepreneur, and social worker from Maharashtra, India. Born with a vision to create sustainable business models that benefit both the economy and society, he has established himself as a respected figure in multiple sectors including real estate, digital services, social welfare, and manufacturing.
+                                        </p>
+                                        
+                                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Early Life & Education</h4>
+                                        <p class="text-gray-700 leading-relaxed mb-6">
+                                            Growing up in Maharashtra, Durgesh developed an early interest in business and community service. His educational background laid the foundation for his entrepreneurial journey, combining academic knowledge with practical business acumen.
+                                        </p>
+                                        
+                                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Professional Journey</h4>
+                                        <p class="text-gray-700 leading-relaxed mb-6">
+                                            Durgesh's professional journey began with a clear vision of "business with purpose." He believes that successful enterprises should not only generate profit but also contribute meaningfully to society. This philosophy has guided all his business ventures and social initiatives.
+                                        </p>
+                                        
+                                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Business Philosophy</h4>
+                                        <p class="text-gray-700 leading-relaxed mb-6">
+                                            His approach to business is characterized by innovation, ethical practices, and community engagement. He actively seeks opportunities to create employment, support local communities, and contribute to economic development while maintaining the highest standards of business ethics.
+                                        </p>
+                                        
+                                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Social Commitment</h4>
+                                        <p class="text-gray-700 leading-relaxed mb-6">
+                                            Beyond business success, Durgesh is deeply committed to social causes. Through the SN Group Foundation, he has initiated various programs focused on education, community development, and social welfare. His work in this area reflects his belief that successful individuals have a responsibility to give back to society.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Business Ventures Overview -->
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-200 pb-2">Business Ventures</h3>
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div onclick="showPage('ngo')" class="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-green-500 cursor-pointer hover:shadow-lg transition-all">
+                                            <div class="flex items-center mb-3">
+                                                <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                                    <i class="fas fa-heart text-green-600 text-xl"></i>
+                                                </div>
+                                                <h4 class="font-semibold text-green-700 text-lg">SN Group Foundation</h4>
+                                            </div>
+                                            <p class="text-gray-600 mb-3">Non-profit organization focused on community development and social welfare initiatives.</p>
+                                            <div class="text-sm text-gray-500">
+                                                <i class="fas fa-users mr-1"></i> Social Impact • Community Development
+                                            </div>
+                                        </div>
+                                        
+                                        <div onclick="showPage('realestate')" class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500 cursor-pointer hover:shadow-lg transition-all">
+                                            <div class="flex items-center mb-3">
+                                                <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                                    <i class="fas fa-building text-purple-600 text-xl"></i>
+                                                </div>
+                                                <h4 class="font-semibold text-purple-700 text-lg">SN Properties Group</h4>
+                                            </div>
+                                            <p class="text-gray-600 mb-3">Real estate services including property development, sales, and investment consultation.</p>
+                                            <div class="text-sm text-gray-500">
+                                                <i class="fas fa-home mr-1"></i> Real Estate • Property Development
+                                            </div>
+                                        </div>
+                                        
+                                        <div onclick="showPage('onlinecenter')" class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg border-l-4 border-blue-500 cursor-pointer hover:shadow-lg transition-all">
+                                            <div class="flex items-center mb-3">
+                                                <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                                    <i class="fas fa-laptop text-blue-600 text-xl"></i>
+                                                </div>
+                                                <h4 class="font-semibold text-blue-700 text-lg">SN Online Center</h4>
+                                            </div>
+                                            <p class="text-gray-600 mb-3">Digital services center providing ITR filing, GST services, online forms, and trust registration.</p>
+                                            <div class="text-sm text-gray-500">
+                                                <i class="fas fa-digital-tachograph mr-1"></i> Digital Services • Government Forms
+                                            </div>
+                                        </div>
+                                        
+                                        <div onclick="showPage('waterbottle')" class="bg-gradient-to-br from-cyan-50 to-teal-50 p-6 rounded-lg border-l-4 border-cyan-500 cursor-pointer hover:shadow-lg transition-all">
+                                            <div class="flex items-center mb-3">
+                                                <div class="bg-cyan-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                                    <i class="fas fa-tint text-cyan-600 text-xl"></i>
+                                                </div>
+                                                <h4 class="font-semibold text-cyan-700 text-lg">Ayneer Water Bottle Plant</h4>
+                                            </div>
+                                            <p class="text-gray-600 mb-3">Upcoming water bottling venture offering premium and regular segment products.</p>
+                                            <div class="text-sm text-gray-500">
+                                                <i class="fas fa-industry mr-1"></i> Manufacturing • Coming Soon
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Achievements & Recognition -->
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-200 pb-2">Key Achievements & Recognition</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                                            <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <i class="fas fa-trophy text-indigo-600 text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-800 text-lg mb-2">Multi-Sector Entrepreneur</h4>
+                                                <p class="text-gray-600">Successfully established and managed businesses across diverse sectors including real estate, digital services, social welfare, and manufacturing. Demonstrated ability to identify market opportunities and create sustainable business models.</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <i class="fas fa-heart text-green-600 text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-800 text-lg mb-2">Social Impact Leader</h4>
+                                                <p class="text-gray-600">Founded and leads SN Group Foundation, driving meaningful community development programs and social welfare initiatives. Recognized for commitment to creating positive social change through organized efforts.</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+                                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <i class="fas fa-building text-purple-600 text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-800 text-lg mb-2">Real Estate Professional</h4>
+                                                <p class="text-gray-600">Established SN Properties Group as a trusted name in property services and development. Known for ethical business practices and customer-centric approach in the real estate sector.</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <i class="fas fa-handshake text-blue-600 text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-gray-800 text-lg mb-2">Community Leader</h4>
+                                                <p class="text-gray-600">Actively involved in community development initiatives and local business networks. Recognized for contributions to economic development and job creation in the region.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Vision & Mission -->
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-200 pb-2">Vision & Mission</h3>
+                                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-lg">
+                                        <div class="grid md:grid-cols-2 gap-8">
+                                            <div>
+                                                <h4 class="text-xl font-semibold text-indigo-800 mb-4 flex items-center">
+                                                    <i class="fas fa-eye mr-3"></i>Vision
+                                                </h4>
+                                                <p class="text-gray-700 leading-relaxed">
+                                                    To create sustainable business ecosystems that drive economic growth while contributing positively to society and community development. Building a legacy of ethical entrepreneurship that inspires future generations.
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xl font-semibold text-purple-800 mb-4 flex items-center">
+                                                    <i class="fas fa-bullseye mr-3"></i>Mission
+                                                </h4>
+                                                <p class="text-gray-700 leading-relaxed">
+                                                    To bridge the gap between commercial success and social responsibility through innovative business solutions, community engagement, and ethical entrepreneurship that creates value for all stakeholders.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Personal Values -->
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-200 pb-2">Core Values</h3>
+                                    <div class="grid md:grid-cols-3 gap-6">
+                                        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+                                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                <i class="fas fa-integrity text-blue-600 text-2xl"></i>
+                                            </div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Integrity</h4>
+                                            <p class="text-gray-600 text-sm">Conducting business with honesty, transparency, and ethical practices in all endeavors.</p>
+                                        </div>
+                                        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+                                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                <i class="fas fa-lightbulb text-green-600 text-2xl"></i>
+                                            </div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Innovation</h4>
+                                            <p class="text-gray-600 text-sm">Embracing new ideas and technologies to create better solutions for business and society.</p>
+                                        </div>
+                                        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+                                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                <i class="fas fa-users text-purple-600 text-2xl"></i>
+                                            </div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Community</h4>
+                                            <p class="text-gray-600 text-sm">Prioritizing community development and social welfare in all business decisions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- My Work Page -->
+        <div id="workPage" class="page-content hidden">
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Work</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="workProjects">
+                        <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                            <div class="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-indigo-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Business Ventures</h3>
+                            <p class="text-gray-600">Leading innovative business projects and startup initiatives</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                            <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-users text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Community Projects</h3>
+                            <p class="text-gray-600">Organizing community development and social welfare programs</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                            <div class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-building text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Real Estate</h3>
+                            <p class="text-gray-600">Property development and real estate investment projects</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- NGO Page -->
+        <div id="ngoPage" class="page-content hidden">
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Back Button -->
+                    <div class="mb-8">
+                        <button onclick="showPage('home')" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span class="font-medium">Back to Home</span>
+                        </button>
+                    </div>
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">SN Group Foundation</h2>
+                    <div class="text-center mb-12">
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto" id="ngoDescription">
+                            Committed to making a positive impact in society through various social initiatives and community development programs under SN Group Foundation.
+                        </p>
+                        <div class="mt-8">
+                            <a href="https://www.sngroupfoundation.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Visit SN Group Foundation Website
+                            </a>
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-2xl font-semibold mb-6">Latest Social Work Updates</h3>
+                            <div id="socialWorkBlog" class="grid md:grid-cols-2 gap-6">
+                                <!-- Social work blog posts will be displayed here -->
+                            </div>
+                            <div class="mt-6">
+                                <button onclick="showMoreSocialWork()" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+                                    See More Updates
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8" id="ngoInitiatives">
+                        <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-8 card-hover">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-graduation-cap text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4">Education Initiative</h3>
+                            <p class="text-gray-600">Supporting education for underprivileged children and promoting literacy in rural areas.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-8 card-hover">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-hands-helping text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4">Community Support</h3>
+                            <p class="text-gray-600">Organizing relief programs and providing support to families in need.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Blog Page -->
+        <div id="blogPage" class="page-content hidden">
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Blog</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogPosts">
+                        <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-48 flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-white text-4xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Entrepreneurship Tips</h3>
+                                <p class="text-gray-600 mb-4">Essential strategies for starting and growing your business...</p>
+                                <span class="text-sm text-gray-500">March 15, 2024</span>
+                            </div>
+                        </article>
+                        <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-gradient-to-r from-green-500 to-blue-600 h-48 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-4xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Social Impact</h3>
+                                <p class="text-gray-600 mb-4">How businesses can create positive social change...</p>
+                                <span class="text-sm text-gray-500">March 10, 2024</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Real Estate Page -->
+        <div id="realestatePage" class="page-content hidden">
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Back Button -->
+                    <div class="mb-8">
+                        <button onclick="showPage('home')" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span class="font-medium">Back to Home</span>
+                        </button>
+                    </div>
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">SN Properties Group</h2>
+                    <div class="text-center mb-12">
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto" id="realEstateDescription">
+                            Professional real estate services including property investment, development, and consultation through SN Properties Group.
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 mb-12" id="realEstateServices">
+                        <div class="text-center p-6 border rounded-lg card-hover">
+                            <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-home text-indigo-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Property Sales</h3>
+                            <p class="text-gray-600">Residential and commercial property sales with expert guidance</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg card-hover">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Investment</h3>
+                            <p class="text-gray-600">Strategic real estate investment opportunities and consultation</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg card-hover">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tools text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Development</h3>
+                            <p class="text-gray-600">Property development and construction project management</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Property Listings Section -->
+                    <div class="mt-16">
+                        <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">Featured Properties</h3>
+                        <div id="propertyListings" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Properties will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SN Online Center Page -->
+        <div id="onlinecenterPage" class="page-content hidden">
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Back Button -->
+                    <div class="mb-8">
+                        <button onclick="showPage('home')" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span class="font-medium">Back to Home</span>
+                        </button>
+                    </div>
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">SN Online Center</h2>
+                    <div class="text-center mb-12">
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+                            Complete online services center providing all digital solutions for individuals and businesses. Located at Tembhurni, Jalna, Maharashtra.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <div class="flex items-center justify-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+                                    <span class="font-semibold">Address:</span>
+                                </div>
+                                <p class="text-gray-700">At, Tembhurni, Jalna, Maharashtra 431208</p>
+                            </div>
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <div class="flex items-center justify-center mb-2">
+                                    <i class="fas fa-user text-green-600 mr-2"></i>
+                                    <span class="font-semibold">Contact Person:</span>
+                                </div>
+                                <p class="text-gray-700 font-medium" id="onlineCenterContact">Mr. Umesh Giram</p>
+                                <p class="text-gray-600" id="onlineCenterPhone">8983826828</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Services Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" id="onlineServices">
+                        <div class="text-center p-6 border rounded-lg card-hover bg-gradient-to-br from-green-50 to-blue-50">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-file-invoice-dollar text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Income Tax Services</h3>
+                            <p class="text-gray-600">ITR Filing, Tax Planning, Refund Processing</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg card-hover bg-gradient-to-br from-blue-50 to-purple-50">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-receipt text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">GST Services</h3>
+                            <p class="text-gray-600">GST Registration, Returns, Compliance</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg card-hover bg-gradient-to-br from-purple-50 to-pink-50">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-file-alt text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Online Forms</h3>
+                            <p class="text-gray-600">Government Forms, Applications, Certificates</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg card-hover bg-gradient-to-br from-orange-50 to-red-50">
+                            <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-hands-helping text-orange-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Trust Registration</h3>
+                            <p class="text-gray-600">NGO Registration, Trust Formation, Legal Support</p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Services -->
+                    <div class="bg-gray-50 rounded-lg p-8">
+                        <h3 class="text-2xl font-semibold text-center mb-8">Additional Services</h3>
+                        <div class="grid md:grid-cols-3 gap-6" id="additionalServices">
+                            <div class="text-center">
+                                <i class="fas fa-laptop text-indigo-600 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">Digital Services</h4>
+                                <p class="text-gray-600 text-sm">Online applications, digital certificates, e-governance services</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-user-tie text-indigo-600 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">Business Support</h4>
+                                <p class="text-gray-600 text-sm">Company registration, licenses, compliance support</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-headset text-indigo-600 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">Customer Support</h4>
+                                <p class="text-gray-600 text-sm">Expert guidance, documentation help, follow-up services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Water Bottle Plant Page -->
+        <div id="waterbottlePage" class="page-content hidden">
+            <section class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Back Button -->
+                    <div class="mb-8">
+                        <button onclick="showPage('home')" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span class="font-medium">Back to Home</span>
+                        </button>
+                    </div>
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Ayneer Water Bottle Plant</h2>
+                    <div class="text-center mb-12">
+                        <div class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 px-8 rounded-lg inline-block mb-6">
+                            <h3 class="text-2xl font-bold">Coming Soon!</h3>
+                            <p class="text-lg">Premium Quality Water Bottles</p>
+                        </div>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Introducing Ayneer Water Bottle Plant - delivering pure, safe, and refreshing water in premium and regular segments for all your hydration needs.
+                        </p>
+                    </div>
+                    
+                    <!-- Product Lines -->
+                    <div class="grid md:grid-cols-2 gap-12 mb-12">
+                        <!-- Prime Segment -->
+                        <div class="bg-gradient-to-br from-gold-50 to-yellow-50 border-2 border-yellow-200 rounded-lg p-8">
+                            <div class="text-center mb-6">
+                                <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-crown text-yellow-600 text-3xl"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-2">Prime</h3>
+                                <p class="text-lg text-gray-600">Premium Segment</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-bottle-water text-yellow-600 mr-3"></i>
+                                    <span><strong>Bottle Sizes:</strong> 1 Litre, 500ml & 250ml</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-600 mr-3"></i>
+                                    <span><strong>Segment:</strong> Premium / Luxury</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-bullseye text-yellow-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>Target Markets:</strong>
+                                        <ul class="list-disc list-inside mt-2 text-gray-600">
+                                            <li>Hotels & Resorts</li>
+                                            <li>Corporate Offices</li>
+                                            <li>Railways AC Coaches</li>
+                                            <li>Premium Restaurants</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lite Segment -->
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-lg p-8">
+                            <div class="text-center mb-6">
+                                <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-tint text-blue-600 text-3xl"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-2">Lite</h3>
+                                <p class="text-lg text-gray-600">Regular Segment</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-bottle-water text-blue-600 mr-3"></i>
+                                    <span><strong>Bottle Sizes:</strong> 1 Litre & 500ml</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-blue-600 mr-3"></i>
+                                    <span><strong>Segment:</strong> Regular / Daily Use</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-bullseye text-blue-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>Target Markets:</strong>
+                                        <ul class="list-disc list-inside mt-2 text-gray-600">
+                                            <li>Retail Shops</li>
+                                            <li>Medical Stores</li>
+                                            <li>General Public</li>
+                                            <li>Schools & Colleges</li>
+                                            <li>Offices</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Gallery -->
+                    <div class="mt-16">
+                        <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">Product Gallery</h3>
+                        <div id="bottleGallery" class="grid md:grid-cols-3 gap-8">
+                            <!-- Bottle images will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contactPage" class="page-content hidden">
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Contact Me</h2>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-phone text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Phone</p>
+                                        <p class="text-gray-600" id="contactPhone">7058257708</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Email</p>
+                                        <p class="text-gray-600" id="contactEmail">dvbankar88@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Location</p>
+                                        <p class="text-gray-600" id="contactLocation">Maharashtra, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                                <div class="flex space-x-4" id="socialLinks">
+                                    <a href="#" class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="bg-blue-400 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <form onsubmit="handleContactForm(event)" class="bg-white p-8 rounded-lg shadow-md">
+                                <h3 class="text-xl font-semibold mb-6">Send Message</h3>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                                    <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                                    <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Subject</label>
+                                    <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                                    <textarea rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Login Panel -->
+    <div id="loginPanel" class="login-panel fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div class="bg-white w-full max-w-md mx-auto mt-32 rounded-lg shadow-xl">
+            <div class="bg-indigo-600 text-white p-6 rounded-t-lg">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold">Admin Login</h2>
+                    <button onclick="closeLogin()" class="text-white hover:text-gray-200">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <form onsubmit="handleLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Username</label>
+                        <input type="text" id="loginUsername" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Password</label>
+                        <input type="password" id="loginPassword" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    </div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-md hover:bg-indigo-700 transition-colors">
+                        Login
+                    </button>
+                </form>
+                <div id="loginError" class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                    Invalid username or password
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div class="bg-white w-full max-w-4xl mx-auto mt-8 mb-8 rounded-lg shadow-xl max-h-screen overflow-y-auto">
+            <div class="bg-indigo-600 text-white p-6 rounded-t-lg">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold">Admin Panel</h2>
+                    <button onclick="toggleAdmin()" class="text-white hover:text-gray-200">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <!-- Admin Navigation -->
+                <div class="flex flex-wrap gap-2 mb-6 border-b pb-4">
+                    <button onclick="showAdminSection('content')" class="admin-nav-btn bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md hover:bg-indigo-200 transition-colors">
+                        Content Management
+                    </button>
+                    <button onclick="showAdminSection('profile')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Profile Photo
+                    </button>
+                    <button onclick="showAdminSection('sections')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Section Management
+                    </button>
+                    <button onclick="showAdminSection('properties')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Property Management
+                    </button>
+                    <button onclick="showAdminSection('blog')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Blog Posts
+                    </button>
+                    <button onclick="showAdminSection('social')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Social Media
+                    </button>
+                    <button onclick="showAdminSection('services')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Online Services
+                    </button>
+                    <button onclick="showAdminSection('bottles')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Water Bottles
+                    </button>
+                    <button onclick="showAdminSection('contact')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Contact Info
+                    </button>
+                    <button onclick="showAdminSection('onlinecenter')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Online Center
+                    </button>
+                    <button onclick="showAdminSection('workcontact')" class="admin-nav-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors">
+                        Work Contact
+                    </button>
+                </div>
+
+                <!-- Content Management Section -->
+                <div id="adminContent" class="admin-section">
+                    <h3 class="text-xl font-semibold mb-4">Content Management</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Hero Description</label>
+                            <textarea id="heroDescEdit" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Passionate about creating positive change through business innovation and social impact. Building bridges between entrepreneurship and community development.</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">About Description</label>
+                            <textarea id="aboutDescEdit" rows="4" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">I am a passionate businessman, entrepreneur, and social worker dedicated to creating positive change in our community. With years of experience in various business ventures and a deep commitment to social causes, I strive to bridge the gap between commercial success and social responsibility.</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">NGO Description</label>
+                            <textarea id="ngoDescEdit" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Committed to making a positive impact in society through various social initiatives and community development programs under SN Group Foundation.</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">SN Group Foundation Website URL</label>
+                            <input type="url" id="ngoWebsiteEdit" value="https://www.sngroupfoundation.org" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Real Estate Description</label>
+                            <textarea id="realEstateDescEdit" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Professional real estate services including property investment, development, and consultation through SN Properties Group.</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Biography Preview (Home Page)</label>
+                            <textarea id="biographyPreviewEdit" rows="4" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">A visionary entrepreneur and dedicated social worker from Maharashtra, India. With a passion for creating sustainable business models that benefit both the economy and society, Durgesh has established himself as a respected figure across multiple sectors including real estate, digital services, social welfare, and manufacturing.</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Full Biography (Profile Page)</label>
+                            <textarea id="fullBiographyEdit" rows="8" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Durgesh Vishnu Bankar is a prominent businessman, entrepreneur, and social worker from Maharashtra, India. Born with a vision to create sustainable business models that benefit both the economy and society, he has established himself as a respected figure in multiple sectors including real estate, digital services, social welfare, and manufacturing.
+
+Growing up in Maharashtra, Durgesh developed an early interest in business and community service. His educational background laid the foundation for his entrepreneurial journey, combining academic knowledge with practical business acumen.
+
+Durgesh's professional journey began with a clear vision of "business with purpose." He believes that successful enterprises should not only generate profit but also contribute meaningfully to society. This philosophy has guided all his business ventures and social initiatives.
+
+His approach to business is characterized by innovation, ethical practices, and community engagement. He actively seeks opportunities to create employment, support local communities, and contribute to economic development while maintaining the highest standards of business ethics.
+
+Beyond business success, Durgesh is deeply committed to social causes. Through the SN Group Foundation, he has initiated various programs focused on education, community development, and social welfare. His work in this area reflects his belief that successful individuals have a responsibility to give back to society.</textarea>
+                        </div>
+                        <button onclick="saveContent()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                            Save Content Changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Photo Management Section -->
+                <div id="adminProfile" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Profile Photo Management</h3>
+                    <div class="space-y-6">
+                        <div class="text-center">
+                            <div class="mb-4">
+                                <img id="profilePreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='100' fill='url(%23grad)'/%3E%3Ctext x='100' y='120' font-family='Arial, sans-serif' font-size='50' fill='white' text-anchor='middle'%3E👤%3C/text%3E%3C/svg%3E" alt="Profile Preview" class="w-48 h-48 rounded-full mx-auto border-4 border-gray-200 object-cover">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Profile Photo URL</label>
+                                <input type="url" id="profilePhotoUrl" placeholder="https://example.com/your-photo.jpg" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <p class="text-sm text-gray-500 mt-2">Enter a direct URL to your photo (must be https://)</p>
+                            </div>
+                            <button onclick="updateProfilePhoto()" class="mt-4 bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                                Update Profile Photo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Management Section -->
+                <div id="adminSections" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Section Management</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-medium mb-3">Home Page Sections</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Business Section Title</label>
+                                    <input type="text" id="businessSectionTitle" value="Business" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Business Section Description</label>
+                                    <textarea id="businessSectionDesc" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Innovative business solutions and entrepreneurial ventures</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Social Work Section Title</label>
+                                    <input type="text" id="socialSectionTitle" value="SN Group Foundation" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Social Work Section Description</label>
+                                    <textarea id="socialSectionDesc" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Dedicated to community development and social causes</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Real Estate Section Title</label>
+                                    <input type="text" id="realEstateSectionTitle" value="SN Properties Group" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Real Estate Section Description</label>
+                                    <textarea id="realEstateSectionDesc" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Professional real estate services and investments</textarea>
+                                </div>
+                            </div>
+                            <button onclick="saveSections()" class="mt-4 bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                                Save Section Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Management Section -->
+                <div id="adminProperties" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Property Management</h3>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-3">Add New Property</h4>
+                        <form onsubmit="addProperty(event)" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Property Name</label>
+                                    <input type="text" id="propertyName" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Price</label>
+                                    <input type="text" id="propertyPrice" required placeholder="₹50,00,000" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Location</label>
+                                <input type="text" id="propertyLocation" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Property Details</label>
+                                <textarea id="propertyDetails" rows="3" required placeholder="3BHK, 1200 sq ft, Modern amenities..." class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Property Photo URL</label>
+                                <input type="url" id="propertyPhoto" placeholder="https://example.com/property-photo.jpg" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <p class="text-sm text-gray-500 mt-1">Optional: Enter a direct URL to property photo</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Property Type</label>
+                                <select id="propertyType" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="residential">Residential</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="plot">Plot/Land</option>
+                                    <option value="rental">Rental</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+                                Add Property
+                            </button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-3">Existing Properties</h4>
+                        <div id="existingProperties" class="space-y-3">
+                            <!-- Existing properties will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Management Section -->
+                <div id="adminBlog" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Blog Management</h3>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-3">Add New Blog Post</h4>
+                        <form onsubmit="addBlogPost(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Title</label>
+                                <input type="text" id="blogTitle" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Content</label>
+                                <textarea id="blogContent" rows="4" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Category</label>
+                                <select id="blogCategory" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="personal">Personal Blog</option>
+                                    <option value="sn-foundation">SN Group Foundation Blog</option>
+                                    <option value="sn-properties">SN Properties Group Blog</option>
+                                    <option value="business">Business</option>
+                                    <option value="general">General</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+                                Add Blog Post
+                            </button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-3">Existing Posts</h4>
+                        <div id="existingPosts" class="space-y-3">
+                            <!-- Existing posts will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Section -->
+                <div id="adminSocial" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Social Media Links</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Facebook URL</label>
+                            <input type="url" id="facebookUrl" placeholder="https://facebook.com/yourprofile" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Twitter URL</label>
+                            <input type="url" id="twitterUrl" placeholder="https://twitter.com/yourprofile" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">LinkedIn URL</label>
+                            <input type="url" id="linkedinUrl" placeholder="https://linkedin.com/in/yourprofile" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Instagram URL</label>
+                            <input type="url" id="instagramUrl" placeholder="https://instagram.com/yourprofile" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <button onclick="saveSocialLinks()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                            Save Social Links
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Online Services Management Section -->
+                <div id="adminServices" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Online Services Management</h3>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-3">Add New Service</h4>
+                        <form onsubmit="addService(event)" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Service Name</label>
+                                    <input type="text" id="serviceName" required class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Service Icon</label>
+                                    <select id="serviceIcon" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                        <option value="fas fa-file-invoice-dollar">Income Tax</option>
+                                        <option value="fas fa-receipt">GST/Receipt</option>
+                                        <option value="fas fa-file-alt">Forms/Documents</option>
+                                        <option value="fas fa-hands-helping">Trust/NGO</option>
+                                        <option value="fas fa-laptop">Digital Services</option>
+                                        <option value="fas fa-user-tie">Business</option>
+                                        <option value="fas fa-headset">Support</option>
+                                        <option value="fas fa-certificate">Certificates</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Service Description</label>
+                                <textarea id="serviceDescription" rows="2" required placeholder="Brief description of the service..." class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Service Category</label>
+                                <select id="serviceCategory" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="main">Main Services</option>
+                                    <option value="additional">Additional Services</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+                                Add Service
+                            </button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-3">Existing Services</h4>
+                        <div id="existingServices" class="space-y-3">
+                            <!-- Existing services will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Water Bottles Management Section -->
+                <div id="adminBottles" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Water Bottle Gallery Management</h3>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium mb-3">Add Bottle Photo</h4>
+                        <form onsubmit="addBottlePhoto(event)" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Bottle Name</label>
+                                    <input type="text" id="bottleName" required placeholder="e.g., Ayneer Prime 1L" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Bottle Type</label>
+                                    <select id="bottleType" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                        <option value="prime">Prime (Premium)</option>
+                                        <option value="lite">Lite (Regular)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Bottle Size</label>
+                                <select id="bottleSize" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    <option value="1L">1 Litre</option>
+                                    <option value="500ml">500ml</option>
+                                    <option value="250ml">250ml</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Bottle Photo URL</label>
+                                <input type="url" id="bottlePhotoUrl" required placeholder="https://example.com/bottle-photo.jpg" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <p class="text-sm text-gray-500 mt-1">Enter a direct URL to bottle photo (must be https://)</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Description (Optional)</label>
+                                <textarea id="bottleDescription" rows="2" placeholder="Additional details about the bottle..." class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+                                Add Bottle Photo
+                            </button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-3">Existing Bottle Photos</h4>
+                        <div id="existingBottles" class="grid md:grid-cols-2 gap-4">
+                            <!-- Existing bottle photos will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Center Management Section -->
+                <div id="adminOnlinecenter" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">SN Online Center Management</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Contact Person Name</label>
+                            <input type="text" id="onlineCenterContactEdit" value="Mr. Umesh Giram" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Contact Person Phone</label>
+                            <input type="tel" id="onlineCenterPhoneEdit" value="8983826828" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Center Address</label>
+                            <input type="text" id="onlineCenterAddressEdit" value="At, Tembhurni, Jalna, Maharashtra 431208" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <button onclick="saveOnlineCenterInfo()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                            Save Online Center Info
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Work Contact Management Section -->
+                <div id="adminWorkcontact" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">About My Work - Contact Management</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">About My Work Description</label>
+                            <textarea id="aboutMyWorkEdit" rows="4" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">With years of experience across multiple sectors, I provide comprehensive business solutions and services. My work spans real estate development, digital services, social welfare initiatives, and manufacturing ventures. I am committed to delivering quality results and building lasting relationships with clients and communities.</textarea>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Work Contact Phone</label>
+                                <input type="tel" id="workContactPhoneEdit" value="7058257708" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Work Contact Email</label>
+                                <input type="email" id="workContactEmailEdit" value="dvbankar88@gmail.com" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Office Location</label>
+                            <input type="text" id="workOfficeLocationEdit" value="Maharashtra, India" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-medium mb-3">Professional Services</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Real Estate Services Description</label>
+                                    <textarea id="realEstateServiceEdit" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Property development, sales, investment consultation, and real estate advisory services.</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Social Welfare Services Description</label>
+                                    <textarea id="socialWelfareServiceEdit" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Community development programs, NGO management, and social impact initiatives.</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Digital Services Description</label>
+                                    <textarea id="digitalServiceEdit" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Online center services, ITR filing, GST services, and government form assistance.</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Business Ventures Description</label>
+                                    <textarea id="businessVenturesServiceEdit" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">Manufacturing projects, business development, and entrepreneurial consulting.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="saveWorkContactInfo()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                            Save Work Contact Info
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div id="adminContactInfo" class="admin-section hidden">
+                    <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phoneEdit" value="7058257708" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="emailEdit" value="dvbankar88@gmail.com" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Location</label>
+                            <input type="text" id="locationEdit" value="Maharashtra, India" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        <button onclick="saveContactInfo()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                            Save Contact Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Durgesh Bankar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let isLoggedIn = false;
+        let properties = [];
+        let socialWorkPosts = [];
+        let onlineServices = [];
+        let bottlePhotos = [];
+
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.add('hidden'));
+            
+            // Show selected page
+            document.getElementById(pageId + 'Page').classList.remove('hidden');
+            
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Login Functions
+        function toggleAdmin() {
+            if (isLoggedIn) {
+                const adminPanel = document.getElementById('adminPanel');
+                adminPanel.style.display = adminPanel.style.display === 'none' || adminPanel.style.display === '' ? 'block' : 'none';
+            } else {
+                const loginPanel = document.getElementById('loginPanel');
+                loginPanel.style.display = 'block';
+            }
+        }
+
+        function closeLogin() {
+            const loginPanel = document.getElementById('loginPanel');
+            loginPanel.style.display = 'none';
+            document.getElementById('loginError').classList.add('hidden');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (username === 'dvbankar88' && password === 'Durgesh@2025') {
+                isLoggedIn = true;
+                closeLogin();
+                const adminPanel = document.getElementById('adminPanel');
+                adminPanel.style.display = 'block';
+                document.getElementById('loginUsername').value = '';
+                document.getElementById('loginPassword').value = '';
+            } else {
+                document.getElementById('loginError').classList.remove('hidden');
+            }
+        }
+
+        // Profile Photo Management
+        function updateProfilePhoto() {
+            const photoUrl = document.getElementById('profilePhotoUrl').value;
+            if (photoUrl && photoUrl.startsWith('https://')) {
+                const profilePhoto = document.getElementById('profilePhoto');
+                const profilePreview = document.getElementById('profilePreview');
+                const profilePhotoHome = document.getElementById('profilePhotoHome');
+                
+                profilePhoto.src = photoUrl;
+                profilePreview.src = photoUrl;
+                profilePhotoHome.src = photoUrl;
+                
+                alert('Profile photo updated successfully!');
+            } else {
+                alert('Please enter a valid HTTPS URL for the photo.');
+            }
+        }
+
+        // Property Management
+        function addProperty(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('propertyName').value;
+            const price = document.getElementById('propertyPrice').value;
+            const location = document.getElementById('propertyLocation').value;
+            const details = document.getElementById('propertyDetails').value;
+            const photo = document.getElementById('propertyPhoto').value;
+            const type = document.getElementById('propertyType').value;
+            
+            const newProperty = {
+                id: Date.now(),
+                name: name,
+                price: price,
+                location: location,
+                details: details,
+                photo: photo || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f3f4f6"/%3E%3Ctext x="200" y="150" font-family="Arial, sans-serif" font-size="24" fill="%236b7280" text-anchor="middle"%3E🏠 Property Image%3C/text%3E%3C/svg%3E',
+                type: type,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            };
+            
+            properties.unshift(newProperty);
+            updatePropertyDisplay();
+            updateExistingProperties();
+            
+            // Clear form
+            document.getElementById('propertyName').value = '';
+            document.getElementById('propertyPrice').value = '';
+            document.getElementById('propertyLocation').value = '';
+            document.getElementById('propertyDetails').value = '';
+            document.getElementById('propertyPhoto').value = '';
+            
+            alert('Property added successfully!');
+        }
+
+        function updatePropertyDisplay() {
+            const propertyContainer = document.getElementById('propertyListings');
+            propertyContainer.innerHTML = '';
+            
+            properties.forEach(property => {
+                const propertyElement = document.createElement('div');
+                propertyElement.className = 'bg-white rounded-lg shadow-lg overflow-hidden property-card';
+                propertyElement.innerHTML = `
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="${property.photo}" alt="${property.name}" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"400\\" height=\\"300\\" viewBox=\\"0 0 400 300\\"%3E%3Crect width=\\"400\\" height=\\"300\\" fill=\\"%23f3f4f6\\"/%3E%3Ctext x=\\"200\\" y=\\"150\\" font-family=\\"Arial, sans-serif\\" font-size=\\"24\\" fill=\\"%236b7280\\" text-anchor=\\"middle\\"%3E🏠 Property%3C/text%3E%3C/svg%3E';">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-gray-800">${property.name}</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">${property.type}</span>
+                        </div>
+                        <p class="text-2xl font-bold text-green-600 mb-2">${property.price}</p>
+                        <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt mr-1"></i>${property.location}</p>
+                        <p class="text-gray-600 text-sm mb-4">${property.details}</p>
+                        <button class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors">
+                            Contact for Details
+                        </button>
+                    </div>
+                `;
+                propertyContainer.appendChild(propertyElement);
+            });
+        }
+
+        function updateExistingProperties() {
+            const existingPropertiesContainer = document.getElementById('existingProperties');
+            existingPropertiesContainer.innerHTML = '';
+            
+            properties.forEach(property => {
+                const propertyElement = document.createElement('div');
+                propertyElement.className = 'bg-gray-50 p-4 rounded-md flex justify-between items-center';
+                propertyElement.innerHTML = `
+                    <div>
+                        <h4 class="font-medium">${property.name}</h4>
+                        <p class="text-sm text-gray-600">${property.location} • ${property.price} • ${property.type}</p>
+                    </div>
+                    <button onclick="deleteProperty(${property.id})" class="text-red-600 hover:text-red-800">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                existingPropertiesContainer.appendChild(propertyElement);
+            });
+        }
+
+        function deleteProperty(propertyId) {
+            if (confirm('Are you sure you want to delete this property?')) {
+                properties = properties.filter(property => property.id !== propertyId);
+                updatePropertyDisplay();
+                updateExistingProperties();
+                alert('Property deleted successfully!');
+            }
+        }
+
+        // Social Work Blog Functions
+        function showMoreSocialWork() {
+            alert('Redirecting to SN Group Foundation website for more updates...');
+            window.open('https://www.sngroupfoundation.org', '_blank');
+        }
+
+        function updateSocialWorkBlog() {
+            const socialWorkContainer = document.getElementById('socialWorkBlog');
+            socialWorkContainer.innerHTML = '';
+            
+            // Filter blog posts for SN Foundation
+            const foundationPosts = blogPosts.filter(post => post.category === 'sn-foundation').slice(0, 4);
+            
+            foundationPosts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'bg-white rounded-lg shadow-md p-6 card-hover';
+                postElement.innerHTML = `
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-heart text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">${post.title}</h4>
+                            <p class="text-sm text-gray-500">${post.date}</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">${post.content}</p>
+                `;
+                socialWorkContainer.appendChild(postElement);
+            });
+            
+            if (foundationPosts.length === 0) {
+                socialWorkContainer.innerHTML = '<p class="text-gray-500 text-center col-span-2">No social work updates yet. Add some through the admin panel!</p>';
+            }
+        }
+
+        function showAdminSection(sectionId) {
+            // Hide all admin sections
+            const sections = document.querySelectorAll('.admin-section');
+            sections.forEach(section => section.classList.add('hidden'));
+            
+            // Show selected section
+            document.getElementById('admin' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1)).classList.remove('hidden');
+            
+            // Update navigation buttons
+            const navBtns = document.querySelectorAll('.admin-nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('bg-indigo-100', 'text-indigo-700');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            event.target.classList.remove('bg-gray-100', 'text-gray-700');
+            event.target.classList.add('bg-indigo-100', 'text-indigo-700');
+        }
+
+        // Content Management
+        function saveContent() {
+            const heroDesc = document.getElementById('heroDescEdit').value;
+            const aboutDesc = document.getElementById('aboutDescEdit').value;
+            const ngoDesc = document.getElementById('ngoDescEdit').value;
+            const ngoWebsite = document.getElementById('ngoWebsiteEdit').value;
+            const realEstateDesc = document.getElementById('realEstateDescEdit').value;
+            const biographyPreview = document.getElementById('biographyPreviewEdit').value;
+            const fullBiography = document.getElementById('fullBiographyEdit').value;
+
+            document.getElementById('heroDescription').textContent = heroDesc;
+            document.getElementById('aboutDescription').textContent = aboutDesc;
+            document.getElementById('ngoDescription').textContent = ngoDesc;
+            document.getElementById('realEstateDescription').textContent = realEstateDesc;
+            document.getElementById('biographyPreview').textContent = biographyPreview;
+            document.getElementById('fullBiography').textContent = fullBiography;
+            
+            // Update NGO website link
+            const ngoWebsiteLink = document.querySelector('a[href*="sngroupfoundation"]');
+            if (ngoWebsiteLink && ngoWebsite) {
+                ngoWebsiteLink.href = ngoWebsite;
+            }
+
+            alert('Content updated successfully!');
+        }
+
+        // Online Center Management
+        function saveOnlineCenterInfo() {
+            const contactName = document.getElementById('onlineCenterContactEdit').value;
+            const contactPhone = document.getElementById('onlineCenterPhoneEdit').value;
+            const centerAddress = document.getElementById('onlineCenterAddressEdit').value;
+            
+            document.getElementById('onlineCenterContact').textContent = contactName;
+            document.getElementById('onlineCenterPhone').textContent = contactPhone;
+            
+            // Update address in the page
+            const addressElement = document.querySelector('#onlinecenterPage .bg-blue-50 p');
+            if (addressElement) {
+                addressElement.textContent = centerAddress;
+            }
+            
+            alert('Online Center information updated successfully!');
+        }
+
+        // Blog Management
+        let blogPosts = [
+            {
+                id: 1,
+                title: "Entrepreneurship Tips",
+                content: "Essential strategies for starting and growing your business...",
+                category: "business",
+                date: "March 15, 2024"
+            },
+            {
+                id: 2,
+                title: "Social Impact",
+                content: "How businesses can create positive social change...",
+                category: "social",
+                date: "March 10, 2024"
+            }
+        ];
+
+        function addBlogPost(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('blogTitle').value;
+            const content = document.getElementById('blogContent').value;
+            const category = document.getElementById('blogCategory').value;
+            
+            const newPost = {
+                id: Date.now(),
+                title: title,
+                content: content,
+                category: category,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            };
+            
+            blogPosts.unshift(newPost);
+            updateBlogDisplay();
+            updateExistingPosts();
+            updateSocialWorkBlog();
+            
+            // Clear form
+            document.getElementById('blogTitle').value = '';
+            document.getElementById('blogContent').value = '';
+            
+            alert('Blog post added successfully!');
+        }
+
+        function updateBlogDisplay() {
+            const blogContainer = document.getElementById('blogPosts');
+            blogContainer.innerHTML = '';
+            
+            blogPosts.forEach(post => {
+                const categoryColors = {
+                    personal: 'from-blue-500 to-indigo-600',
+                    'sn-foundation': 'from-green-500 to-blue-600',
+                    'sn-properties': 'from-purple-500 to-pink-600',
+                    business: 'from-indigo-500 to-purple-600',
+                    general: 'from-gray-500 to-gray-600'
+                };
+                
+                const categoryIcons = {
+                    personal: 'fas fa-user',
+                    'sn-foundation': 'fas fa-heart',
+                    'sn-properties': 'fas fa-home',
+                    business: 'fas fa-lightbulb',
+                    general: 'fas fa-newspaper'
+                };
+                
+                const postElement = document.createElement('article');
+                postElement.className = 'bg-white rounded-lg shadow-md overflow-hidden card-hover';
+                postElement.innerHTML = `
+                    <div class="bg-gradient-to-r ${categoryColors[post.category]} h-48 flex items-center justify-center">
+                        <i class="${categoryIcons[post.category]} text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">${post.title}</h3>
+                        <p class="text-gray-600 mb-4">${post.content}</p>
+                        <span class="text-sm text-gray-500">${post.date}</span>
+                    </div>
+                `;
+                blogContainer.appendChild(postElement);
+            });
+        }
+
+        function updateExistingPosts() {
+            const existingPostsContainer = document.getElementById('existingPosts');
+            existingPostsContainer.innerHTML = '';
+            
+            blogPosts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'bg-gray-50 p-4 rounded-md flex justify-between items-center';
+                postElement.innerHTML = `
+                    <div>
+                        <h4 class="font-medium">${post.title}</h4>
+                        <p class="text-sm text-gray-600">${post.category} • ${post.date}</p>
+                    </div>
+                    <button onclick="deleteBlogPost(${post.id})" class="text-red-600 hover:text-red-800">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                existingPostsContainer.appendChild(postElement);
+            });
+        }
+
+        function deleteBlogPost(postId) {
+            if (confirm('Are you sure you want to delete this blog post?')) {
+                blogPosts = blogPosts.filter(post => post.id !== postId);
+                updateBlogDisplay();
+                updateExistingPosts();
+                updateSocialWorkBlog();
+                alert('Blog post deleted successfully!');
+            }
+        }
+
+        // Social Media Management
+        function saveSocialLinks() {
+            const facebook = document.getElementById('facebookUrl').value;
+            const twitter = document.getElementById('twitterUrl').value;
+            const linkedin = document.getElementById('linkedinUrl').value;
+            const instagram = document.getElementById('instagramUrl').value;
+            
+            const socialLinks = document.getElementById('socialLinks');
+            const links = socialLinks.querySelectorAll('a');
+            
+            if (facebook) links[0].href = facebook;
+            if (twitter) links[1].href = twitter;
+            if (linkedin) links[2].href = linkedin;
+            if (instagram) links[3].href = instagram;
+            
+            alert('Social media links updated successfully!');
+        }
+
+        // Section Management
+        function saveSections() {
+            const businessTitle = document.getElementById('businessSectionTitle').value;
+            const businessDesc = document.getElementById('businessSectionDesc').value;
+            const socialTitle = document.getElementById('socialSectionTitle').value;
+            const socialDesc = document.getElementById('socialSectionDesc').value;
+            const realEstateTitle = document.getElementById('realEstateSectionTitle').value;
+            const realEstateDesc = document.getElementById('realEstateSectionDesc').value;
+            
+            // Update home page sections
+            const homeSections = document.querySelectorAll('#homePage .card-hover');
+            if (homeSections.length >= 3) {
+                homeSections[0].querySelector('h3').textContent = businessTitle;
+                homeSections[0].querySelector('p').textContent = businessDesc;
+                homeSections[1].querySelector('h3').textContent = socialTitle;
+                homeSections[1].querySelector('p').textContent = socialDesc;
+                homeSections[2].querySelector('h3').textContent = realEstateTitle;
+                homeSections[2].querySelector('p').textContent = realEstateDesc;
+            }
+            
+            alert('Section information updated successfully!');
+        }
+
+        // Work Contact Management
+        function saveWorkContactInfo() {
+            const aboutMyWork = document.getElementById('aboutMyWorkEdit').value;
+            const workPhone = document.getElementById('workContactPhoneEdit').value;
+            const workEmail = document.getElementById('workContactEmailEdit').value;
+            const officeLocation = document.getElementById('workOfficeLocationEdit').value;
+            const realEstateService = document.getElementById('realEstateServiceEdit').value;
+            const socialWelfareService = document.getElementById('socialWelfareServiceEdit').value;
+            const digitalService = document.getElementById('digitalServiceEdit').value;
+            const businessVenturesService = document.getElementById('businessVenturesServiceEdit').value;
+            
+            // Update About My Work section
+            document.getElementById('aboutMyWorkDescription').textContent = aboutMyWork;
+            document.getElementById('workContactPhone').textContent = workPhone;
+            document.getElementById('workContactEmail').textContent = workEmail;
+            document.getElementById('workOfficeLocation').textContent = officeLocation;
+            
+            // Update professional services
+            const professionalServices = document.getElementById('professionalServices');
+            const serviceDescriptions = professionalServices.querySelectorAll('p');
+            if (serviceDescriptions.length >= 4) {
+                serviceDescriptions[0].textContent = realEstateService;
+                serviceDescriptions[1].textContent = socialWelfareService;
+                serviceDescriptions[2].textContent = digitalService;
+                serviceDescriptions[3].textContent = businessVenturesService;
+            }
+            
+            alert('Work contact information updated successfully!');
+        }
+
+        // Contact Info Management
+        function saveContactInfo() {
+            const phone = document.getElementById('phoneEdit').value;
+            const email = document.getElementById('emailEdit').value;
+            const location = document.getElementById('locationEdit').value;
+            
+            document.getElementById('contactPhone').textContent = phone;
+            document.getElementById('contactEmail').textContent = email;
+            document.getElementById('contactLocation').textContent = location;
+            
+            alert('Contact information updated successfully!');
+        }
+
+        // Contact Form Handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Service Management Functions
+        function addService(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('serviceName').value;
+            const icon = document.getElementById('serviceIcon').value;
+            const description = document.getElementById('serviceDescription').value;
+            const category = document.getElementById('serviceCategory').value;
+            
+            const newService = {
+                id: Date.now(),
+                name: name,
+                icon: icon,
+                description: description,
+                category: category
+            };
+            
+            onlineServices.unshift(newService);
+            updateServicesDisplay();
+            updateExistingServices();
+            
+            // Clear form
+            document.getElementById('serviceName').value = '';
+            document.getElementById('serviceDescription').value = '';
+            
+            alert('Service added successfully!');
+        }
+
+        function updateServicesDisplay() {
+            const mainServices = onlineServices.filter(service => service.category === 'main');
+            const additionalServices = onlineServices.filter(service => service.category === 'additional');
+            
+            // Update main services
+            const onlineServicesContainer = document.getElementById('onlineServices');
+            if (mainServices.length > 0) {
+                onlineServicesContainer.innerHTML = '';
+                mainServices.forEach(service => {
+                    const serviceElement = document.createElement('div');
+                    serviceElement.className = 'text-center p-6 border rounded-lg card-hover bg-gradient-to-br from-green-50 to-blue-50';
+                    serviceElement.innerHTML = `
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="${service.icon} text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">${service.name}</h3>
+                        <p class="text-gray-600">${service.description}</p>
+                    `;
+                    onlineServicesContainer.appendChild(serviceElement);
+                });
+            }
+            
+            // Update additional services
+            const additionalServicesContainer = document.getElementById('additionalServices');
+            if (additionalServices.length > 0) {
+                additionalServicesContainer.innerHTML = '';
+                additionalServices.forEach(service => {
+                    const serviceElement = document.createElement('div');
+                    serviceElement.className = 'text-center';
+                    serviceElement.innerHTML = `
+                        <i class="${service.icon} text-indigo-600 text-3xl mb-3"></i>
+                        <h4 class="font-semibold mb-2">${service.name}</h4>
+                        <p class="text-gray-600 text-sm">${service.description}</p>
+                    `;
+                    additionalServicesContainer.appendChild(serviceElement);
+                });
+            }
+        }
+
+        function updateExistingServices() {
+            const existingServicesContainer = document.getElementById('existingServices');
+            existingServicesContainer.innerHTML = '';
+            
+            onlineServices.forEach(service => {
+                const serviceElement = document.createElement('div');
+                serviceElement.className = 'bg-gray-50 p-4 rounded-md flex justify-between items-center';
+                serviceElement.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="${service.icon} text-indigo-600 mr-3"></i>
+                        <div>
+                            <h4 class="font-medium">${service.name}</h4>
+                            <p class="text-sm text-gray-600">${service.category} • ${service.description}</p>
+                        </div>
+                    </div>
+                    <button onclick="deleteService(${service.id})" class="text-red-600 hover:text-red-800">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                existingServicesContainer.appendChild(serviceElement);
+            });
+        }
+
+        function deleteService(serviceId) {
+            if (confirm('Are you sure you want to delete this service?')) {
+                onlineServices = onlineServices.filter(service => service.id !== serviceId);
+                updateServicesDisplay();
+                updateExistingServices();
+                alert('Service deleted successfully!');
+            }
+        }
+
+        // Bottle Photo Management Functions
+        function addBottlePhoto(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('bottleName').value;
+            const type = document.getElementById('bottleType').value;
+            const size = document.getElementById('bottleSize').value;
+            const photoUrl = document.getElementById('bottlePhotoUrl').value;
+            const description = document.getElementById('bottleDescription').value;
+            
+            if (!photoUrl.startsWith('https://')) {
+                alert('Please enter a valid HTTPS URL for the photo.');
+                return;
+            }
+            
+            const newBottle = {
+                id: Date.now(),
+                name: name,
+                type: type,
+                size: size,
+                photo: photoUrl,
+                description: description
+            };
+            
+            bottlePhotos.unshift(newBottle);
+            updateBottleGallery();
+            updateExistingBottles();
+            
+            // Clear form
+            document.getElementById('bottleName').value = '';
+            document.getElementById('bottlePhotoUrl').value = '';
+            document.getElementById('bottleDescription').value = '';
+            
+            alert('Bottle photo added successfully!');
+        }
+
+        function updateBottleGallery() {
+            const bottleGalleryContainer = document.getElementById('bottleGallery');
+            bottleGalleryContainer.innerHTML = '';
+            
+            bottlePhotos.forEach(bottle => {
+                const bottleElement = document.createElement('div');
+                bottleElement.className = 'bg-white rounded-lg shadow-lg overflow-hidden card-hover';
+                
+                const typeColors = {
+                    prime: 'bg-gradient-to-r from-yellow-400 to-orange-500',
+                    lite: 'bg-gradient-to-r from-blue-400 to-cyan-500'
+                };
+                
+                bottleElement.innerHTML = `
+                    <div class="h-64 bg-gray-100 overflow-hidden">
+                        <img src="${bottle.photo}" alt="${bottle.name}" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"300\\" height=\\"400\\" viewBox=\\"0 0 300 400\\"%3E%3Crect width=\\"300\\" height=\\"400\\" fill=\\"%23f3f4f6\\"/%3E%3Ctext x=\\"150\\" y=\\"200\\" font-family=\\"Arial, sans-serif\\" font-size=\\"24\\" fill=\\"%236b7280\\" text-anchor=\\"middle\\"%3E💧 Bottle%3C/text%3E%3C/svg%3E';">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-gray-800">${bottle.name}</h3>
+                            <span class="${typeColors[bottle.type]} text-white text-xs px-2 py-1 rounded-full">${bottle.type.toUpperCase()}</span>
+                        </div>
+                        <p class="text-lg font-bold text-blue-600 mb-2">${bottle.size}</p>
+                        ${bottle.description ? `<p class="text-gray-600 text-sm">${bottle.description}</p>` : ''}
+                    </div>
+                `;
+                bottleGalleryContainer.appendChild(bottleElement);
+            });
+            
+            if (bottlePhotos.length === 0) {
+                bottleGalleryContainer.innerHTML = '<p class="text-gray-500 text-center col-span-3">No bottle photos yet. Add some through the admin panel!</p>';
+            }
+        }
+
+        function updateExistingBottles() {
+            const existingBottlesContainer = document.getElementById('existingBottles');
+            existingBottlesContainer.innerHTML = '';
+            
+            bottlePhotos.forEach(bottle => {
+                const bottleElement = document.createElement('div');
+                bottleElement.className = 'bg-gray-50 p-4 rounded-md';
+                bottleElement.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center">
+                            <img src="${bottle.photo}" alt="${bottle.name}" class="w-16 h-16 object-cover rounded mr-3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"64\\" height=\\"64\\" viewBox=\\"0 0 64 64\\"%3E%3Crect width=\\"64\\" height=\\"64\\" fill=\\"%23f3f4f6\\"/%3E%3Ctext x=\\"32\\" y=\\"40\\" font-family=\\"Arial, sans-serif\\" font-size=\\"20\\" fill=\\"%236b7280\\" text-anchor=\\"middle\\"%3E💧%3C/text%3E%3C/svg%3E';">
+                            <div>
+                                <h4 class="font-medium">${bottle.name}</h4>
+                                <p class="text-sm text-gray-600">${bottle.type} • ${bottle.size}</p>
+                            </div>
+                        </div>
+                        <button onclick="deleteBottlePhoto(${bottle.id})" class="text-red-600 hover:text-red-800">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                existingBottlesContainer.appendChild(bottleElement);
+            });
+        }
+
+        function deleteBottlePhoto(bottleId) {
+            if (confirm('Are you sure you want to delete this bottle photo?')) {
+                bottlePhotos = bottlePhotos.filter(bottle => bottle.id !== bottleId);
+                updateBottleGallery();
+                updateExistingBottles();
+                alert('Bottle photo deleted successfully!');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateExistingPosts();
+            updateExistingProperties();
+            updateSocialWorkBlog();
+            updateExistingServices();
+            updateExistingBottles();
+            updateBottleGallery();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988457b984b585b4',t:'MTc1OTQwOTYwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
