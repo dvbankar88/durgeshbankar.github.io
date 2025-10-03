@@ -56,6 +56,7 @@
                 <div class="hidden md:flex space-x-6">
                     <a href="#" onclick="showPage('home')" class="nav-link text-gray-600 hover:text-blue-600 transition">Home</a>
                     <a href="#" onclick="showPage('about')" class="nav-link text-gray-600 hover:text-blue-600 transition">About</a>
+                    <a href="#" onclick="showBiography()" class="nav-link text-gray-600 hover:text-blue-600 transition">Biography</a>
                     <a href="#" onclick="showPage('businesses')" class="nav-link text-gray-600 hover:text-blue-600 transition">Businesses</a>
                     <a href="#" onclick="showPage('contact')" class="nav-link text-gray-600 hover:text-blue-600 transition">Contact</a>
                     <button onclick="showAdminLogin()" class="text-gray-400 hover:text-gray-600 transition">
@@ -74,6 +75,7 @@
         <div class="px-4 py-2 space-y-2">
             <a href="#" onclick="showPage('home')" class="block py-2 text-gray-600">Home</a>
             <a href="#" onclick="showPage('about')" class="block py-2 text-gray-600">About</a>
+            <a href="#" onclick="showBiography()" class="block py-2 text-gray-600">Biography</a>
             <a href="#" onclick="showPage('businesses')" class="block py-2 text-gray-600">Businesses</a>
             <a href="#" onclick="showPage('contact')" class="block py-2 text-gray-600">Contact</a>
         </div>
@@ -100,6 +102,13 @@
                         <button onclick="showBiography()" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition">
                             <i class="fas fa-user mr-2"></i>View Biography
                         </button>
+                    </div>
+                    
+                    <!-- Hero Social Links -->
+                    <div id="hero-social-section" class="mt-8 hidden">
+                        <div id="hero-social-links" class="flex justify-center space-x-6">
+                            <!-- Social links will be populated here -->
+                        </div>
                     </div>
                 </div>
             </section>
@@ -450,6 +459,14 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- Social Media Section -->
+                            <div id="contact-social-section" class="mt-8">
+                                <h4 class="font-semibold text-gray-800 mb-4">Connect With Me</h4>
+                                <div id="contact-social-links" class="flex flex-wrap gap-4">
+                                    <!-- Social links will be populated here -->
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <form id="contact-form" class="space-y-6">
@@ -576,6 +593,8 @@
                         <a href="https://www.durgeshbankar.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition">
                             <i class="fas fa-globe text-xl"></i>
                         </a>
+                        <!-- Social Media Links will be added here -->
+                        <div id="footer-social-links" class="flex space-x-4"></div>
                     </div>
                 </div>
 
@@ -661,6 +680,7 @@
                         <li><a href="#" onclick="showAdminSection('footer')" class="admin-nav-link block py-2 px-4 rounded hover:bg-gray-700 transition">Footer Management</a></li>
                         <li><a href="#" onclick="showAdminSection('settings')" class="admin-nav-link block py-2 px-4 rounded hover:bg-gray-700 transition">Website Settings</a></li>
                         <li><a href="#" onclick="showAdminSection('backup')" class="admin-nav-link block py-2 px-4 rounded hover:bg-gray-700 transition">Backup & Export</a></li>
+                        <li><a href="#" onclick="showAdminSection('social')" class="admin-nav-link block py-2 px-4 rounded hover:bg-gray-700 transition">Social Media Links</a></li>
                         <li><a href="#" onclick="showAdminSection('analytics')" class="admin-nav-link block py-2 px-4 rounded hover:bg-gray-700 transition">Analytics & Reports</a></li>
                     </ul>
                 </nav>
@@ -1246,7 +1266,7 @@
                 <!-- Photo Management -->
                 <div id="admin-photos" class="admin-section hidden">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">Photo Management</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="bg-white p-6 rounded-lg shadow">
                             <h4 class="text-lg font-semibold mb-4">Profile Photo</h4>
                             <div class="crop-container mb-4">
@@ -1262,6 +1282,14 @@
                             </div>
                             <input type="file" id="about-photo-input" accept="image/*" class="mb-4">
                             <button onclick="updateAboutPhoto()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Update About Photo</button>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h4 class="text-lg font-semibold mb-4">Biography Photo</h4>
+                            <div class="crop-container mb-4">
+                                <img id="biography-photo-preview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%23f3f4f6'/%3E%3Ccircle cx='100' cy='80' r='30' fill='%236b7280'/%3E%3Cpath d='M40 160 Q100 140 160 160' fill='%236b7280'/%3E%3C/svg%3E" class="crop-image">
+                            </div>
+                            <input type="file" id="biography-photo-input" accept="image/*" class="mb-4">
+                            <button onclick="updateBiographyPhoto()" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition">Update Biography Photo</button>
                         </div>
                     </div>
                 </div>
@@ -1653,6 +1681,164 @@ My mission is to create sustainable business solutions that not only generate pr
                                 <div class="text-sm text-gray-600">Days Online</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Management -->
+                <div id="admin-social" class="admin-section hidden">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Social Media Links Management</h3>
+                    
+                    <!-- Social Media Links Form -->
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                        <h4 class="text-lg font-semibold mb-4">Add Your Social Media Links</h4>
+                        <form id="social-media-form" class="space-y-6">
+                            <!-- Main Social Platforms -->
+                            <div class="bg-white p-4 rounded-lg">
+                                <h5 class="text-md font-semibold text-gray-800 mb-3">Main Social Platforms</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-facebook text-blue-600 mr-2"></i>Facebook Profile URL
+                                        </label>
+                                        <input type="url" id="social-facebook" placeholder="https://facebook.com/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-instagram text-pink-600 mr-2"></i>Instagram Profile URL
+                                        </label>
+                                        <input type="url" id="social-instagram" placeholder="https://instagram.com/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-twitter text-blue-400 mr-2"></i>Twitter Profile URL
+                                        </label>
+                                        <input type="url" id="social-twitter" placeholder="https://twitter.com/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-linkedin text-blue-700 mr-2"></i>LinkedIn Profile URL
+                                        </label>
+                                        <input type="url" id="social-linkedin" placeholder="https://linkedin.com/in/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Professional & Business Platforms -->
+                            <div class="bg-white p-4 rounded-lg">
+                                <h5 class="text-md font-semibold text-gray-800 mb-3">Professional & Business Platforms</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-youtube text-red-600 mr-2"></i>YouTube Channel URL
+                                        </label>
+                                        <input type="url" id="social-youtube" placeholder="https://youtube.com/c/yourchannel" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-telegram text-blue-500 mr-2"></i>Telegram Channel/Profile
+                                        </label>
+                                        <input type="url" id="social-telegram" placeholder="https://t.me/yourchannel" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-whatsapp text-green-600 mr-2"></i>WhatsApp Business Number
+                                        </label>
+                                        <input type="tel" id="social-whatsapp" value="917058257708" placeholder="917058257708" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                        <p class="text-sm text-gray-500 mt-1">Enter with country code (e.g., 917058257708)</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fas fa-globe text-purple-600 mr-2"></i>Personal Website
+                                        </label>
+                                        <input type="url" id="social-website" value="https://www.durgeshbankar.com" placeholder="https://www.yourwebsite.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Platforms -->
+                            <div class="bg-white p-4 rounded-lg">
+                                <h5 class="text-md font-semibold text-gray-800 mb-3">Additional Platforms</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-github text-gray-800 mr-2"></i>GitHub Profile
+                                        </label>
+                                        <input type="url" id="social-github" placeholder="https://github.com/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-pinterest text-red-500 mr-2"></i>Pinterest Profile
+                                        </label>
+                                        <input type="url" id="social-pinterest" placeholder="https://pinterest.com/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-tiktok text-black mr-2"></i>TikTok Profile
+                                        </label>
+                                        <input type="url" id="social-tiktok" placeholder="https://tiktok.com/@yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">
+                                            <i class="fab fa-snapchat text-yellow-500 mr-2"></i>Snapchat Profile
+                                        </label>
+                                        <input type="url" id="social-snapchat" placeholder="https://snapchat.com/add/yourprofile" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Display Settings -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h5 class="text-md font-semibold text-gray-800 mb-3">Display Settings</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h6 class="font-semibold text-gray-700 mb-2">Show Social Links In:</h6>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="show-social-footer" checked class="mr-2">
+                                                <span class="text-gray-700">Footer Section</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="show-social-contact" checked class="mr-2">
+                                                <span class="text-gray-700">Contact Page</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="checkbox" id="show-social-hero" class="mr-2">
+                                                <span class="text-gray-700">Hero Section (Homepage)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 font-semibold mb-2">Display Style</label>
+                                            <select id="social-style" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                                <option value="both">Icons + Text</option>
+                                                <option value="icons">Icons Only</option>
+                                                <option value="text">Text Only</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-semibold mb-2">Link Behavior</label>
+                                            <select id="social-target" class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                                <option value="_blank">Open in New Tab</option>
+                                                <option value="_self">Open in Same Tab</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Preview Section -->
+                            <div class="bg-white border-2 border-dashed border-gray-300 p-6 rounded-lg">
+                                <h5 class="text-md font-semibold text-gray-800 mb-3">Live Preview</h5>
+                                <div id="social-preview" class="flex flex-wrap gap-3">
+                                    <p class="text-gray-500 w-full">Social links will appear here as you add them...</p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                                <i class="fas fa-save mr-2"></i>Update Social Media Links
+                            </button>
+                        </form>
                     </div>
                 </div>
 
@@ -2387,6 +2573,19 @@ My mission is to create sustainable business solutions that not only generate pr
                     const imageUrl = e.target.result;
                     document.getElementById('about-photo').src = imageUrl;
                     document.getElementById('about-photo-preview').src = imageUrl;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function updateBiographyPhoto() {
+            const input = document.getElementById('biography-photo-input');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result;
+                    document.getElementById('bio-photo').src = imageUrl;
+                    document.getElementById('biography-photo-preview').src = imageUrl;
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -3127,28 +3326,42 @@ My mission is to create sustainable business solutions that not only generate pr
         }
 
         function exportWebsiteData() {
-            const data = {
-                businesses: businesses,
-                enquiries: enquiries,
-                settings: {
-                    profileName: document.getElementById('profile-name')?.value,
-                    profileTitle: document.getElementById('profile-title')?.value,
-                    profileEmail: document.getElementById('profile-email')?.value,
-                    profilePhone: document.getElementById('profile-phone')?.value,
-                    profileDescription: document.getElementById('profile-description')?.value
-                },
-                timestamp: new Date().toISOString()
-            };
-            
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `website-backup-${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            try {
+                const data = {
+                    backupType: 'complete_website_backup',
+                    businesses: businesses,
+                    enquiries: enquiries,
+                    socialMediaLinks: socialMediaLinks,
+                    socialDisplaySettings: socialDisplaySettings,
+                    settings: {
+                        profileName: document.getElementById('profile-name')?.value || 'Mr. Durgesh Vishnu Bankar',
+                        profileTitle: document.getElementById('profile-title')?.value || 'Businessman, Entrepreneur & Social Worker',
+                        profileEmail: document.getElementById('profile-email')?.value || 'office@durgeshbankar.com',
+                        profilePhone: document.getElementById('profile-phone')?.value || '7058257708',
+                        profileDescription: document.getElementById('profile-description')?.value || 'Leading multiple successful ventures while contributing to social welfare through SN Group Foundation'
+                    },
+                    timestamp: new Date().toISOString(),
+                    version: '1.0',
+                    generatedBy: 'Durgesh Bankar Portfolio Admin Panel'
+                };
+                
+                const jsonString = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `website-backup-${new Date().toISOString().split('T')[0]}.json`;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert('Complete website backup downloaded successfully!');
+            } catch (error) {
+                console.error('Error exporting website data:', error);
+                alert('Error creating backup. Please try again.');
+            }
         }
 
         function importWebsiteData(event) {
@@ -3190,83 +3403,157 @@ My mission is to create sustainable business solutions that not only generate pr
 
         // Additional Export Functions
         function exportBusinessesOnly() {
-            const data = {
-                businesses: businesses,
-                timestamp: new Date().toISOString(),
-                type: 'businesses_only'
-            };
-            
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `businesses-backup-${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            try {
+                const data = {
+                    backupType: 'businesses_only',
+                    businesses: businesses,
+                    timestamp: new Date().toISOString(),
+                    generatedBy: 'Durgesh Bankar Portfolio Admin Panel',
+                    summary: {
+                        totalBusinesses: businesses.length,
+                        activeBusinesses: businesses.filter(b => b.status === 'Active').length,
+                        comingSoonBusinesses: businesses.filter(b => b.status === 'Coming Soon').length,
+                        totalServices: businesses.reduce((total, business) => total + (business.services ? business.services.length : 0), 0)
+                    }
+                };
+                
+                const jsonString = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `businesses-backup-${new Date().toISOString().split('T')[0]}.json`;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert('Businesses data downloaded successfully!');
+            } catch (error) {
+                console.error('Error exporting businesses:', error);
+                alert('Error creating businesses backup. Please try again.');
+            }
         }
 
         function exportEnquiriesOnly() {
-            const data = {
-                enquiries: enquiries,
-                timestamp: new Date().toISOString(),
-                type: 'enquiries_only'
-            };
-            
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `enquiries-backup-${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            try {
+                const data = {
+                    backupType: 'enquiries_only',
+                    enquiries: enquiries,
+                    timestamp: new Date().toISOString(),
+                    generatedBy: 'Durgesh Bankar Portfolio Admin Panel',
+                    summary: {
+                        totalEnquiries: enquiries.length,
+                        enquiriesThisMonth: enquiries.filter(e => {
+                            const enquiryDate = new Date(e.date);
+                            const currentMonth = new Date().getMonth();
+                            return enquiryDate.getMonth() === currentMonth;
+                        }).length
+                    }
+                };
+                
+                const jsonString = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `enquiries-backup-${new Date().toISOString().split('T')[0]}.json`;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert('Enquiries data downloaded successfully!');
+            } catch (error) {
+                console.error('Error exporting enquiries:', error);
+                alert('Error creating enquiries backup. Please try again.');
+            }
         }
 
         function createManualBackup() {
-            exportWebsiteData();
-            document.getElementById('last-backup-date').textContent = new Date().toLocaleString();
-            alert('Manual backup created successfully!');
+            try {
+                exportWebsiteData();
+                const lastBackupElement = document.getElementById('last-backup-date');
+                if (lastBackupElement) {
+                    lastBackupElement.textContent = new Date().toLocaleString();
+                }
+                alert('Manual backup created and downloaded successfully!');
+            } catch (error) {
+                console.error('Error creating manual backup:', error);
+                alert('Error creating manual backup. Please try again.');
+            }
         }
 
         function exportAnalyticsReport(period) {
-            const reportData = {
-                period: period,
-                generated: new Date().toISOString(),
-                stats: {
-                    totalBusinesses: businesses.length,
-                    totalEnquiries: enquiries.length,
-                    totalServices: businesses.reduce((total, business) => total + (business.services ? business.services.length : 0), 0),
-                    pageViews: 2847,
-                    uniqueVisitors: 1234,
-                    bounceRate: '23%'
-                },
-                businesses: businesses.map(b => ({
-                    name: b.name,
-                    type: b.type,
-                    status: b.status,
-                    servicesCount: b.services ? b.services.length : 0
-                })),
-                enquiries: enquiries.map(e => ({
-                    date: e.date,
-                    name: e.name,
-                    email: e.email
-                }))
-            };
+            try {
+                const reportData = {
+                    period: period,
+                    generated: new Date().toISOString(),
+                    generatedBy: 'Durgesh Bankar Portfolio Admin Panel',
+                    stats: {
+                        totalBusinesses: businesses.length,
+                        totalEnquiries: enquiries.length,
+                        totalServices: businesses.reduce((total, business) => total + (business.services ? business.services.length : 0), 0),
+                        pageViews: 2847,
+                        uniqueVisitors: 1234,
+                        bounceRate: '23%'
+                    },
+                    businesses: businesses.map(b => ({
+                        name: b.name,
+                        type: b.type,
+                        status: b.status,
+                        servicesCount: b.services ? b.services.length : 0,
+                        contactPerson: b.contactPerson ? b.contactPerson.name : 'Not specified'
+                    })),
+                    enquiries: enquiries.map(e => ({
+                        date: e.date,
+                        name: e.name,
+                        email: e.email,
+                        phone: e.phone || 'Not provided'
+                    })),
+                    summary: {
+                        mostPopularBusinessType: getMostPopularBusinessType(),
+                        totalActiveBusinesses: businesses.filter(b => b.status === 'Active').length,
+                        totalComingSoonBusinesses: businesses.filter(b => b.status === 'Coming Soon').length
+                    }
+                };
+                
+                const jsonString = JSON.stringify(reportData, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `analytics-report-${period}-${new Date().toISOString().split('T')[0]}.json`;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert(`${period.charAt(0).toUpperCase() + period.slice(1)} analytics report downloaded successfully!`);
+            } catch (error) {
+                console.error('Error exporting analytics report:', error);
+                alert('Error creating analytics report. Please try again.');
+            }
+        }
+
+        function getMostPopularBusinessType() {
+            const typeCounts = {};
+            businesses.forEach(b => {
+                typeCounts[b.type] = (typeCounts[b.type] || 0) + 1;
+            });
             
-            const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `analytics-report-${period}-${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            alert(`${period.charAt(0).toUpperCase() + period.slice(1)} analytics report exported successfully!`);
+            let maxCount = 0;
+            let mostPopular = 'None';
+            for (const [type, count] of Object.entries(typeCounts)) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    mostPopular = type;
+                }
+            }
+            return mostPopular;
         }
 
         function updateStatistics() {
@@ -3410,11 +3697,311 @@ My mission is to create sustainable business solutions that not only generate pr
             alert('All advanced settings updated successfully!');
         });
 
+        // Social Media Management
+        let socialMediaLinks = {
+            facebook: '',
+            instagram: '',
+            twitter: '',
+            linkedin: '',
+            youtube: '',
+            telegram: '',
+            whatsapp: '917058257708',
+            website: 'https://www.durgeshbankar.com',
+            github: '',
+            pinterest: '',
+            tiktok: '',
+            snapchat: ''
+        };
+
+        let socialDisplaySettings = {
+            showInFooter: true,
+            showInContact: true,
+            showInHero: false,
+            style: 'both', // 'icons', 'text', 'both'
+            target: '_blank'
+        };
+
+        function updateSocialPreview() {
+            const preview = document.getElementById('social-preview');
+            const style = document.getElementById('social-style').value;
+            const target = document.getElementById('social-target').value;
+            
+            let previewHTML = '';
+            const platforms = {
+                facebook: { icon: 'fab fa-facebook', name: 'Facebook', color: 'text-blue-600' },
+                instagram: { icon: 'fab fa-instagram', name: 'Instagram', color: 'text-pink-600' },
+                twitter: { icon: 'fab fa-twitter', name: 'Twitter', color: 'text-blue-400' },
+                linkedin: { icon: 'fab fa-linkedin', name: 'LinkedIn', color: 'text-blue-700' },
+                youtube: { icon: 'fab fa-youtube', name: 'YouTube', color: 'text-red-600' },
+                telegram: { icon: 'fab fa-telegram', name: 'Telegram', color: 'text-blue-500' },
+                whatsapp: { icon: 'fab fa-whatsapp', name: 'WhatsApp', color: 'text-green-600' },
+                website: { icon: 'fas fa-globe', name: 'Website', color: 'text-purple-600' },
+                github: { icon: 'fab fa-github', name: 'GitHub', color: 'text-gray-800' },
+                pinterest: { icon: 'fab fa-pinterest', name: 'Pinterest', color: 'text-red-500' },
+                tiktok: { icon: 'fab fa-tiktok', name: 'TikTok', color: 'text-black' },
+                snapchat: { icon: 'fab fa-snapchat', name: 'Snapchat', color: 'text-yellow-500' }
+            };
+            
+            Object.keys(socialMediaLinks).forEach(platform => {
+                const link = socialMediaLinks[platform];
+                if (link) {
+                    const platformData = platforms[platform];
+                    let href = link;
+                    
+                    if (platform === 'whatsapp') {
+                        href = `https://wa.me/${link}`;
+                    }
+                    
+                    let linkText = '';
+                    if (style === 'icons') {
+                        linkText = `<i class="${platformData.icon} ${platformData.color} text-xl"></i>`;
+                    } else if (style === 'text') {
+                        linkText = platformData.name;
+                    } else {
+                        linkText = `<i class="${platformData.icon} ${platformData.color} mr-2"></i>${platformData.name}`;
+                    }
+                    
+                    previewHTML += `
+                        <a href="${href}" target="${target}" rel="noopener noreferrer" class="flex items-center space-x-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition">
+                            ${linkText}
+                        </a>
+                    `;
+                }
+            });
+            
+            if (previewHTML) {
+                preview.innerHTML = previewHTML;
+            } else {
+                preview.innerHTML = '<p class="text-gray-500 w-full">Social links will appear here as you add them...</p>';
+            }
+        }
+
+        function updateSocialLinksDisplay() {
+            // Update Footer Social Links
+            if (socialDisplaySettings.showInFooter) {
+                updateFooterSocialLinks();
+            } else {
+                document.getElementById('footer-social-links').innerHTML = '';
+            }
+            
+            // Update Contact Page Social Links
+            if (socialDisplaySettings.showInContact) {
+                updateContactSocialLinks();
+            } else {
+                document.getElementById('contact-social-links').innerHTML = '';
+                document.getElementById('contact-social-section').style.display = 'none';
+            }
+            
+            // Update Hero Section Social Links
+            if (socialDisplaySettings.showInHero) {
+                updateHeroSocialLinks();
+                document.getElementById('hero-social-section').classList.remove('hidden');
+            } else {
+                document.getElementById('hero-social-section').classList.add('hidden');
+            }
+        }
+
+        function updateFooterSocialLinks() {
+            const container = document.getElementById('footer-social-links');
+            let linksHTML = '';
+            
+            const platforms = {
+                facebook: { icon: 'fab fa-facebook', name: 'Facebook' },
+                instagram: { icon: 'fab fa-instagram', name: 'Instagram' },
+                twitter: { icon: 'fab fa-twitter', name: 'Twitter' },
+                linkedin: { icon: 'fab fa-linkedin', name: 'LinkedIn' },
+                youtube: { icon: 'fab fa-youtube', name: 'YouTube' },
+                telegram: { icon: 'fab fa-telegram', name: 'Telegram' },
+                whatsapp: { icon: 'fab fa-whatsapp', name: 'WhatsApp' },
+                github: { icon: 'fab fa-github', name: 'GitHub' },
+                pinterest: { icon: 'fab fa-pinterest', name: 'Pinterest' },
+                tiktok: { icon: 'fab fa-tiktok', name: 'TikTok' },
+                snapchat: { icon: 'fab fa-snapchat', name: 'Snapchat' }
+            };
+            
+            Object.keys(socialMediaLinks).forEach(platform => {
+                const link = socialMediaLinks[platform];
+                if (link && platform !== 'website') {
+                    const platformData = platforms[platform];
+                    let href = link;
+                    
+                    if (platform === 'whatsapp') {
+                        href = `https://wa.me/${link}`;
+                    }
+                    
+                    linksHTML += `
+                        <a href="${href}" target="${socialDisplaySettings.target}" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition" title="${platformData.name}">
+                            <i class="${platformData.icon} text-xl"></i>
+                        </a>
+                    `;
+                }
+            });
+            
+            container.innerHTML = linksHTML;
+        }
+
+        function updateContactSocialLinks() {
+            const container = document.getElementById('contact-social-links');
+            const section = document.getElementById('contact-social-section');
+            let linksHTML = '';
+            
+            const platforms = {
+                facebook: { icon: 'fab fa-facebook', name: 'Facebook', color: 'bg-blue-600 hover:bg-blue-700' },
+                instagram: { icon: 'fab fa-instagram', name: 'Instagram', color: 'bg-pink-600 hover:bg-pink-700' },
+                twitter: { icon: 'fab fa-twitter', name: 'Twitter', color: 'bg-blue-400 hover:bg-blue-500' },
+                linkedin: { icon: 'fab fa-linkedin', name: 'LinkedIn', color: 'bg-blue-700 hover:bg-blue-800' },
+                youtube: { icon: 'fab fa-youtube', name: 'YouTube', color: 'bg-red-600 hover:bg-red-700' },
+                telegram: { icon: 'fab fa-telegram', name: 'Telegram', color: 'bg-blue-500 hover:bg-blue-600' },
+                whatsapp: { icon: 'fab fa-whatsapp', name: 'WhatsApp', color: 'bg-green-600 hover:bg-green-700' },
+                website: { icon: 'fas fa-globe', name: 'Website', color: 'bg-purple-600 hover:bg-purple-700' },
+                github: { icon: 'fab fa-github', name: 'GitHub', color: 'bg-gray-800 hover:bg-gray-900' },
+                pinterest: { icon: 'fab fa-pinterest', name: 'Pinterest', color: 'bg-red-500 hover:bg-red-600' },
+                tiktok: { icon: 'fab fa-tiktok', name: 'TikTok', color: 'bg-black hover:bg-gray-800' },
+                snapchat: { icon: 'fab fa-snapchat', name: 'Snapchat', color: 'bg-yellow-500 hover:bg-yellow-600' }
+            };
+            
+            Object.keys(socialMediaLinks).forEach(platform => {
+                const link = socialMediaLinks[platform];
+                if (link) {
+                    const platformData = platforms[platform];
+                    let href = link;
+                    
+                    if (platform === 'whatsapp') {
+                        href = `https://wa.me/${link}`;
+                    }
+                    
+                    let linkText = '';
+                    if (socialDisplaySettings.style === 'icons') {
+                        linkText = `<i class="${platformData.icon}"></i>`;
+                    } else if (socialDisplaySettings.style === 'text') {
+                        linkText = platformData.name;
+                    } else {
+                        linkText = `<i class="${platformData.icon} mr-2"></i>${platformData.name}`;
+                    }
+                    
+                    linksHTML += `
+                        <a href="${href}" target="${socialDisplaySettings.target}" rel="noopener noreferrer" class="flex items-center px-4 py-2 ${platformData.color} text-white rounded-lg font-semibold transition">
+                            ${linkText}
+                        </a>
+                    `;
+                }
+            });
+            
+            if (linksHTML) {
+                container.innerHTML = linksHTML;
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        function updateHeroSocialLinks() {
+            const container = document.getElementById('hero-social-links');
+            let linksHTML = '';
+            
+            const platforms = {
+                facebook: { icon: 'fab fa-facebook', name: 'Facebook' },
+                instagram: { icon: 'fab fa-instagram', name: 'Instagram' },
+                twitter: { icon: 'fab fa-twitter', name: 'Twitter' },
+                linkedin: { icon: 'fab fa-linkedin', name: 'LinkedIn' },
+                youtube: { icon: 'fab fa-youtube', name: 'YouTube' },
+                telegram: { icon: 'fab fa-telegram', name: 'Telegram' },
+                whatsapp: { icon: 'fab fa-whatsapp', name: 'WhatsApp' },
+                website: { icon: 'fas fa-globe', name: 'Website' },
+                github: { icon: 'fab fa-github', name: 'GitHub' },
+                pinterest: { icon: 'fab fa-pinterest', name: 'Pinterest' },
+                tiktok: { icon: 'fab fa-tiktok', name: 'TikTok' },
+                snapchat: { icon: 'fab fa-snapchat', name: 'Snapchat' }
+            };
+            
+            Object.keys(socialMediaLinks).forEach(platform => {
+                const link = socialMediaLinks[platform];
+                if (link) {
+                    const platformData = platforms[platform];
+                    let href = link;
+                    
+                    if (platform === 'whatsapp') {
+                        href = `https://wa.me/${link}`;
+                    }
+                    
+                    linksHTML += `
+                        <a href="${href}" target="${socialDisplaySettings.target}" rel="noopener noreferrer" class="text-white hover:text-gray-200 transition" title="${platformData.name}">
+                            <i class="${platformData.icon} text-2xl"></i>
+                        </a>
+                    `;
+                }
+            });
+            
+            container.innerHTML = linksHTML;
+        }
+
+        // Social Media Form Handler
+        document.getElementById('social-media-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Update social media links
+            socialMediaLinks.facebook = document.getElementById('social-facebook').value;
+            socialMediaLinks.instagram = document.getElementById('social-instagram').value;
+            socialMediaLinks.twitter = document.getElementById('social-twitter').value;
+            socialMediaLinks.linkedin = document.getElementById('social-linkedin').value;
+            socialMediaLinks.youtube = document.getElementById('social-youtube').value;
+            socialMediaLinks.telegram = document.getElementById('social-telegram').value;
+            socialMediaLinks.whatsapp = document.getElementById('social-whatsapp').value;
+            socialMediaLinks.website = document.getElementById('social-website').value;
+            socialMediaLinks.github = document.getElementById('social-github').value;
+            socialMediaLinks.pinterest = document.getElementById('social-pinterest').value;
+            socialMediaLinks.tiktok = document.getElementById('social-tiktok').value;
+            socialMediaLinks.snapchat = document.getElementById('social-snapchat').value;
+            
+            // Update display settings
+            socialDisplaySettings.showInFooter = document.getElementById('show-social-footer').checked;
+            socialDisplaySettings.showInContact = document.getElementById('show-social-contact').checked;
+            socialDisplaySettings.showInHero = document.getElementById('show-social-hero').checked;
+            socialDisplaySettings.style = document.getElementById('social-style').value;
+            socialDisplaySettings.target = document.getElementById('social-target').value;
+            
+            // Update all social link displays
+            updateSocialLinksDisplay();
+            
+            alert('Social media links updated successfully!');
+        });
+
+        // Add event listeners for real-time preview
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners for social media inputs
+            const socialInputs = [
+                'social-facebook', 'social-instagram', 'social-twitter', 'social-linkedin',
+                'social-youtube', 'social-telegram', 'social-whatsapp', 'social-website',
+                'social-github', 'social-pinterest', 'social-tiktok', 'social-snapchat'
+            ];
+            
+            socialInputs.forEach(inputId => {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.addEventListener('input', function() {
+                        const platform = inputId.replace('social-', '');
+                        socialMediaLinks[platform] = this.value;
+                        updateSocialPreview();
+                    });
+                }
+            });
+            
+            // Add event listeners for display settings
+            const settingsInputs = ['social-style', 'social-target'];
+            settingsInputs.forEach(inputId => {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.addEventListener('change', updateSocialPreview);
+                }
+            });
+        });
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             showPage('home');
             renderBusinessesGrid();
             updateStatistics();
+            updateSocialLinksDisplay();
             
             // Initialize WhatsApp widget visibility
             const enableChatWidget = document.getElementById('enable-chat-widget')?.checked !== false;
@@ -3429,5 +4016,5 @@ My mission is to create sustainable business solutions that not only generate pr
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988a345623081daf',t:'MTc1OTQ3MTA3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988a58b434af1daf',t:'MTc1OTQ3MjU2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
